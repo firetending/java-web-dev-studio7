@@ -1,16 +1,18 @@
 package org.launchcode.studio7;
 
-public class DVD extends OpticalDisc {
+public class FloppyDisk extends BaseDisc {
 
-    public DVD (String name, String contents) {
-        //use defaults for capacity and spinSpeed
-        this(name,contents,4700,5000);
+    public FloppyDisk(String name, String contents) {
+        this(name, contents, 120, 300);
     }
-    public DVD (String name, String contents, int capacity, int spinSpeed) {
+
+    public FloppyDisk(String name, String contents, int capacity, int spinSpeed) {
         super(name, contents);
-        this.setDiscType("DVD");
         this.setCapacity(capacity);
         this.setSpinSpeed(spinSpeed);
+        this.setDiscType("Floppy");
+        this.setReadType("magnet");
+        this.setWriteType("magnet");
     }
 
     @Override
@@ -30,11 +32,4 @@ public class DVD extends OpticalDisc {
         System.out.format("Write mode activated: let's give this %s some data using a %s%n",this.getDiscType(),
                 this.getWriteType());
     }
-
-
-    // TODO: Implement your custom interface.
-
-    // TODO: Determine which fields, methods, and constructors can be extended from the base class and which ones
-    //  need to be declared separately.
-
 }

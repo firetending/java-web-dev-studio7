@@ -1,14 +1,12 @@
 package org.launchcode.studio7;
 
-public class CD extends BaseDisc implements OpticalDisc{
+public class CD extends OpticalDisc{
     public CD (String name, String contents) {
-        super(name, contents);
-        this.setDiscType("CD");
-        this.setCapacity(700);
-        this.setSpinSpeed(5000);
+        //use defaults for capacity and spinSpeed
+        this(name,contents,700,5000);
     }
 
-    public CD (String name, String contents, double capacity, double spinSpeed) {
+    public CD (String name, String contents, int capacity, int spinSpeed) {
         super(name, contents);
         this.setDiscType("CD");
         this.setCapacity(capacity);
@@ -17,17 +15,20 @@ public class CD extends BaseDisc implements OpticalDisc{
 
     @Override
     public void spinDisc() {
-        System.out.println("CD is spinning NOW");
+        System.out.format("The %s is spinning at %s RPM%n",this.getDiscType(),this.getSpinSpeed());
     }
 
     @Override
-    public void laserRead() {
-        System.out.println("reading this CD loud and clear");
+    public void readFromDisc() {
+        System.out.format("Wow we're reading up to %sMB from this %s using a %s%n",this.getCapacity(),
+                this.getDiscType(),
+                this.getReadType());
     }
 
     @Override
-    public void laserWrite() {
-        System.out.println("writing to this CD like it's our job");
+    public void writeToDisc() {
+        System.out.format("Write mode activated: let's give this %s some data using a %s%n",this.getDiscType(),
+                this.getWriteType());
     }
 
     // TODO: Implement your custom interface.

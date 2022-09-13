@@ -1,15 +1,22 @@
 package org.launchcode.studio7;
 
-abstract class BaseDisc {
+abstract class BaseDisc implements Disc {
     private String name;
-    private double capacity;
+    private int capacity;
     private String contents;
     private String discType;
-    private double spinSpeed;
+    private int spinSpeed;
+    private String readType;
+    private String writeType;
 
     public BaseDisc(String name, String contents) {
         this.setName(name);
         this.setContents(contents);
+    }
+
+    @Override
+    public String toString() {
+        return this.getDiscType()+": "+this.getName()+" ("+this.getContents()+")";
     }
 
     public String getName() {
@@ -20,11 +27,11 @@ abstract class BaseDisc {
         this.name = name;
     }
 
-    public double getCapacity() {
+    public int getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(double capacity) {
+    public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
@@ -44,14 +51,27 @@ abstract class BaseDisc {
         this.discType = discType;
     }
 
-    public double getSpinSpeed() {
+    public int getSpinSpeed() {
         return spinSpeed;
     }
 
-    public void setSpinSpeed(double spinSpeed) {
+    public void setSpinSpeed(int spinSpeed) {
         this.spinSpeed = spinSpeed;
     }
 
+    public String getReadType() {
+        return readType;
+    }
 
+    public void setReadType(String readType) {
+        this.readType = readType;
+    }
 
+    public String getWriteType() {
+        return writeType;
+    }
+
+    public void setWriteType(String writeType) {
+        this.writeType = writeType;
+    }
 }
